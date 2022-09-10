@@ -1,0 +1,272 @@
+[
+    {
+        "id": "40e8e19cb20332ae",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "62f5ff689a7b880c",
+        "type": "inject",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "25",
+        "payloadType": "num",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "e69ef1121b60351d"
+            ]
+        ]
+    },
+    {
+        "id": "8f64d2e19a13e9a8",
+        "type": "inject",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "e69ef1121b60351d"
+            ]
+        ]
+    },
+    {
+        "id": "77e98a8137333209",
+        "type": "inject",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9",
+        "payloadType": "num",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "e69ef1121b60351d"
+            ]
+        ]
+    },
+    {
+        "id": "7f577cdf4a266ed9",
+        "type": "inject",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "13",
+        "payloadType": "num",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "e69ef1121b60351d"
+            ]
+        ]
+    },
+    {
+        "id": "e69ef1121b60351d",
+        "type": "rbe",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "be4efe9e1a2968e8",
+                "cc6c8b34019884aa"
+            ]
+        ]
+    },
+    {
+        "id": "be4efe9e1a2968e8",
+        "type": "debug",
+        "z": "40e8e19cb20332ae",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"value changed\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cc6c8b34019884aa",
+        "type": "switch",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "20",
+                "vt": "str"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "$$.payload%3=0",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "68126b27693cd743"
+            ],
+            [
+                "1a92a068c2e20f89"
+            ],
+            [
+                "04d2ec35dfb61d57"
+            ]
+        ]
+    },
+    {
+        "id": "68126b27693cd743",
+        "type": "debug",
+        "z": "40e8e19cb20332ae",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Greater than 20\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1a92a068c2e20f89",
+        "type": "debug",
+        "z": "40e8e19cb20332ae",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"Divisible by 3\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "04d2ec35dfb61d57",
+        "type": "change",
+        "z": "40e8e19cb20332ae",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "received_number",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"name\":\"Anjana\",\"index\":\"180060G\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "7411d6d449b60c0d"
+            ]
+        ]
+    },
+    {
+        "id": "7411d6d449b60c0d",
+        "type": "debug",
+        "z": "40e8e19cb20332ae",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 320,
+        "wires": []
+    }
+]

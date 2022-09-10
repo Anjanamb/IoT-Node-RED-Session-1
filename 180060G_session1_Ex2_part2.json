@@ -1,0 +1,307 @@
+[
+    {
+        "id": "9e79b8c33ef64d8a",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7f0411ce9f458dbc",
+        "type": "http request",
+        "z": "9e79b8c33ef64d8a",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "f59aa565298379f9",
+                "b363721f2f898cec",
+                "0bca946331f0e61b"
+            ]
+        ]
+    },
+    {
+        "id": "edfd62c4cdb91aa6",
+        "type": "inject",
+        "z": "9e79b8c33ef64d8a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"lat\":49.72016,\"lng\":-4.42034,\"date\":\"2022-08-14\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "745842c201d1ac86",
+                "8f88016b84e1ecab"
+            ]
+        ]
+    },
+    {
+        "id": "8f88016b84e1ecab",
+        "type": "function",
+        "z": "9e79b8c33ef64d8a",
+        "name": "function 4",
+        "func": "msg.url = \"https://api.sunrise-sunset.org/json?lat=\" + String(msg.payload.lat) + \"&lng=\" + String(msg.payload.lng) + \"&date=\" + msg.payload.date;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "167c10fc03308b49",
+                "7f0411ce9f458dbc"
+            ]
+        ]
+    },
+    {
+        "id": "745842c201d1ac86",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "167c10fc03308b49",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "url",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f59aa565298379f9",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.status",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b363721f2f898cec",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 9",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7d2bd6af428fecd7",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "0bca946331f0e61b",
+        "type": "switch",
+        "z": "9e79b8c33ef64d8a",
+        "name": "",
+        "property": "payload.status",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OK",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 180,
+        "wires": [
+            [
+                "a7a2207f627d3387"
+            ],
+            [
+                "7d2bd6af428fecd7",
+                "5280e651e7e5514d",
+                "39f0865fb70c7c38"
+            ]
+        ]
+    },
+    {
+        "id": "8c8485844d8aa173",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a7a2207f627d3387",
+        "type": "function",
+        "z": "9e79b8c33ef64d8a",
+        "name": "function 5",
+        "func": "delete msg.payload.status;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 140,
+        "wires": [
+            [
+                "8c8485844d8aa173",
+                "5280e651e7e5514d",
+                "39f0865fb70c7c38"
+            ]
+        ]
+    },
+    {
+        "id": "39f0865fb70c7c38",
+        "type": "function",
+        "z": "9e79b8c33ef64d8a",
+        "name": "function 6",
+        "func": "var day = msg.payload.results.day_length;\nif ((parseInt(day) + 0.3) <= (parseInt(day[0] + day[1]) + parseInt(day[3] + day[4])/100)){\n    //msg.payload =  \"Great\";\n    msg.payload.results.day_length_rounded = parseInt(day)+1;\n}\nelse{\n    //msg.payload =  \"Small\";\n    msg.payload.results.day_length_rounded = parseInt(day);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "541e1c61cf69be01"
+            ]
+        ]
+    },
+    {
+        "id": "541e1c61cf69be01",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ddd5bb7d7747768a",
+        "type": "debug",
+        "z": "9e79b8c33ef64d8a",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5280e651e7e5514d",
+        "type": "function",
+        "z": "9e79b8c33ef64d8a",
+        "name": "function 10",
+        "func": "var payload = msg.payload.results.day_length;\nmsg.payload = parseInt(payload[0] + payload[1]) + parseInt(payload[3] + payload[4])/100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 400,
+        "wires": [
+            [
+                "ddd5bb7d7747768a"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,616 @@
+[
+    {
+        "id": "b344e8b5a9269a71",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d7fcdf5094a436e1",
+        "type": "ui_dropdown",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "dbfd3888b6eafa68",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Kurunegala",
+                "value": "Kurunegala",
+                "type": "str"
+            },
+            {
+                "label": "Colombo",
+                "value": "Colombo",
+                "type": "str"
+            },
+            {
+                "label": "Kandy",
+                "value": "Kandy",
+                "type": "str"
+            },
+            {
+                "label": " Jaffna",
+                "value": "Jaffna",
+                "type": "str"
+            },
+            {
+                "label": "Matara",
+                "value": "Matara",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "acf14a53b108c2a4"
+            ]
+        ]
+    },
+    {
+        "id": "d71926aa0d964532",
+        "type": "openweathermap",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "ec8535fcd3fe80a9",
+                "3555cf3917a4cd42",
+                "943826bebbb3d1c6",
+                "9de1f726d78a9519",
+                "378b6bb188ecab33",
+                "b1423e31e393212a",
+                "35cac4b0eb22c26f",
+                "097dd755acc901ac",
+                "7c012027734f07b2",
+                "9a15bc59c06484fc"
+            ]
+        ]
+    },
+    {
+        "id": "ec8535fcd3fe80a9",
+        "type": "debug",
+        "z": "b344e8b5a9269a71",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "acf14a53b108c2a4",
+        "type": "function",
+        "z": "b344e8b5a9269a71",
+        "name": "function 1",
+        "func": "msg.location={\"country\":'Sri Lanka',\"city\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "d71926aa0d964532"
+            ]
+        ]
+    },
+    {
+        "id": "3555cf3917a4cd42",
+        "type": "ui_text",
+        "z": "b344e8b5a9269a71",
+        "group": "ac4bb7da8b299514",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Weather",
+        "format": "{{msg.payload.weather}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "943826bebbb3d1c6",
+        "type": "ui_text",
+        "z": "b344e8b5a9269a71",
+        "group": "ac4bb7da8b299514",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Humidity",
+        "format": "{{msg.payload.humidity}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9de1f726d78a9519",
+        "type": "ui_text",
+        "z": "b344e8b5a9269a71",
+        "group": "ac4bb7da8b299514",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature(C)",
+        "format": "{{msg.payload.tempc}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 840,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8aae072f5bddc6f9",
+        "type": "ui_text",
+        "z": "b344e8b5a9269a71",
+        "group": "ac4bb7da8b299514",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature(F)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 840,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2f74de6e903f496d",
+        "type": "ui_text",
+        "z": "b344e8b5a9269a71",
+        "group": "ac4bb7da8b299514",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Pressure(atm)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 840,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "378b6bb188ecab33",
+        "type": "ui_gauge",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "109db78dcbd1825b",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{msg.payload.tempc}}",
+        "min": "15",
+        "max": "45",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1049a05ff7989826",
+        "type": "ui_gauge",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "109db78dcbd1825b",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{msg.payload}}",
+        "min": "0.47",
+        "max": "2.5",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 810,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b1423e31e393212a",
+        "type": "function",
+        "z": "b344e8b5a9269a71",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.tempc*1.8+32\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "8aae072f5bddc6f9"
+            ]
+        ]
+    },
+    {
+        "id": "35cac4b0eb22c26f",
+        "type": "function",
+        "z": "b344e8b5a9269a71",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.pressure/1000\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "2f74de6e903f496d",
+                "1049a05ff7989826"
+            ]
+        ]
+    },
+    {
+        "id": "18a4af0250109b8c",
+        "type": "ui_chart",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "0bea76d4778f299b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 830,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "097dd755acc901ac",
+        "type": "ui_chart",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "0bea76d4778f299b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "10",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c012027734f07b2",
+        "type": "change",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 440,
+        "wires": [
+            [
+                "18a4af0250109b8c"
+            ]
+        ]
+    },
+    {
+        "id": "9a15bc59c06484fc",
+        "type": "change",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "097dd755acc901ac"
+            ]
+        ]
+    },
+    {
+        "id": "de0acf1bf8787230",
+        "type": "ui_button",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "0bea76d4778f299b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear temperature",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "18a4af0250109b8c"
+            ]
+        ]
+    },
+    {
+        "id": "4a9605634286ebe5",
+        "type": "ui_button",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "0bea76d4778f299b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear pressure",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "097dd755acc901ac"
+            ]
+        ]
+    },
+    {
+        "id": "e1fba1c8e0f18565",
+        "type": "ui_button",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "group": "ac4bb7da8b299514",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear Info & gauges",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "e80caef729cf2945"
+            ]
+        ]
+    },
+    {
+        "id": "e80caef729cf2945",
+        "type": "change",
+        "z": "b344e8b5a9269a71",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "378b6bb188ecab33",
+                "1049a05ff7989826",
+                "3555cf3917a4cd42",
+                "943826bebbb3d1c6",
+                "9de1f726d78a9519",
+                "8aae072f5bddc6f9",
+                "2f74de6e903f496d"
+            ]
+        ]
+    },
+    {
+        "id": "dbfd3888b6eafa68",
+        "type": "ui_group",
+        "name": "Cities",
+        "tab": "3197632aceb2a669",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ac4bb7da8b299514",
+        "type": "ui_group",
+        "name": "Weather Info",
+        "tab": "3197632aceb2a669",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "109db78dcbd1825b",
+        "type": "ui_group",
+        "name": "Gauges",
+        "tab": "3197632aceb2a669",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0bea76d4778f299b",
+        "type": "ui_group",
+        "name": "Charts",
+        "tab": "3197632aceb2a669",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3197632aceb2a669",
+        "type": "ui_tab",
+        "name": "Wether Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

@@ -1,0 +1,358 @@
+[
+    {
+        "id": "7293d75206d3edc7",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bfe00fd2adb624ec",
+        "type": "ui_gauge",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "ac4bb7da8b299514",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 710,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bc15a4d0f70f40dd",
+        "type": "ui_slider",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "ac4bb7da8b299514",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "bfe00fd2adb624ec",
+                "000fb955e033921c"
+            ]
+        ]
+    },
+    {
+        "id": "09da80f9aace83b1",
+        "type": "ui_button",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "a8adb7748da77630",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Hello world!",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "9f1333b2b3330ec8"
+            ]
+        ]
+    },
+    {
+        "id": "9f1333b2b3330ec8",
+        "type": "ui_text",
+        "z": "7293d75206d3edc7",
+        "group": "a8adb7748da77630",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Message:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 640,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e118e36896ab3749",
+        "type": "ui_button",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "8dd7b3af7998e01b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "bc15a4d0f70f40dd",
+                "8392aeeccc39940e",
+                "cf5589d787914d85"
+            ]
+        ]
+    },
+    {
+        "id": "000fb955e033921c",
+        "type": "ui_chart",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "4cb3096d8942a10d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8392aeeccc39940e",
+        "type": "change",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "9f1333b2b3330ec8"
+            ]
+        ]
+    },
+    {
+        "id": "c6476f8ecfb4ccb7",
+        "type": "ui_button",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "4cb3096d8942a10d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 650,
+        "y": 300,
+        "wires": [
+            [
+                "000fb955e033921c"
+            ]
+        ]
+    },
+    {
+        "id": "f6dc34ccce6b742d",
+        "type": "ui_audio",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "group": "ac4bb7da8b299514",
+        "voice": "Microsoft David - English (United States)",
+        "always": "",
+        "x": 440,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cf5589d787914d85",
+        "type": "change",
+        "z": "7293d75206d3edc7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"Reset button pressed\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "f6dc34ccce6b742d",
+                "12082919c5cdda29"
+            ]
+        ]
+    },
+    {
+        "id": "12082919c5cdda29",
+        "type": "ui_toast",
+        "z": "7293d75206d3edc7",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 450,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ac4bb7da8b299514",
+        "type": "ui_group",
+        "name": "Weather Info",
+        "tab": "3197632aceb2a669",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a8adb7748da77630",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "faa09d86826f6e12",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8dd7b3af7998e01b",
+        "type": "ui_group",
+        "name": "Reset All",
+        "tab": "faa09d86826f6e12",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4cb3096d8942a10d",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "faa09d86826f6e12",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3197632aceb2a669",
+        "type": "ui_tab",
+        "name": "Wether Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "faa09d86826f6e12",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
